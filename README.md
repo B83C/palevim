@@ -1,105 +1,24 @@
-Vimperator-labs
+PaleVim
 ===============
 
 [![amo release][amo_version]][amo_release]
 [![github release][github_version]][github_release]
 
+**This is a custom fork of VIMPERATOR**
 **Make Firefox/Thunderbird look and behave like Vim**
 
-> **To beginners**: Welcome to the Vimperator-labs!  
+> **To beginners**: Welcome to the PaleVim-labs!  
 > This README isn't written usage and help for the add-on itself.
 > Try `:help` command after installing add-on for details.
 
-End of Life and Alternatives
-----------------------------
-
-Vimperator will stop working in up-to-date copies of Firefox with the release of Firefox 57 on November 14th due to a large breaking change in how extensions and add-ons are written ([#705](https://github.com/vimperator/vimperator-labs/issues/705)).
-
-It's not all doom and gloom, though! Here are your options ([#729](https://github.com/vimperator/vimperator-labs/issues/729)):
-
- - Stay with vimperator, but use an older release of Firefox or a Firefox fork
-    - [Basilisk](https://www.basilisk-browser.org/),
-      [Pale Moon](https://www.palemoon.org/), and
-      [Waterfox Classic](https://www.waterfox.net/)
-      are community-maintained forks of Firefox that merge security patches and
-      intend to maintain compatibility with XUL/XPCOM add-ons like vimperator.
-      A similar add-on, Pentadactyl, specifically targets
-      [Basilisk](https://addons.basilisk-browser.org/addon/pentadactyl-community/)
-      and [Pale Moon](https://addons.palemoon.org/addon/pentadactyl-community/)
-      and sees more development.
-
- - Use an add-on compatible with the new webextension API
-    - It is not currently possible to match the vimperator feature list in a WebExtension. Some work is being done to rectify this[[1]](https://github.com/cmcaine/keyboard-api)[[2]](https://github.com/Koushien/keyboard-shortcut-api)
-    - [cVim](https://github.com/1995eaton/chromium-vim) (Chrome/Chromium only) - features regex search, commandline with completion, autocmds (via `site` in the config), custom commands through javascript eval
-    - [Tridactyl](https://github.com/cmcaine/tridactyl) (Firefox only) - aims to eventually match the vimperator experience with working beta versions currently available on [AMO](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/)
-
- - Use a less fully-featured add-on compatible with the new WebExtension API
-    - These add-ons provide great, configurable, vim-like shortcuts and hints mode
-    - By design they do not offer insert or command mode, custom commands, autocmds, vim-style maps and so on
-    - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/) - "The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim."
-    - [Saka-key](https://key.saka.io/) - "Put away your mouse. Saka Key lets you control your browser with keyboard shortcuts."
-    - [Vim Vixen](https://addons.mozilla.org/en-US/firefox/addon/vim-vixen/) - "An add-on which allows you to navigate with vim-like bindings."
-
- - Surrender your other add-ons and use a browser with built-in vim bindings
-    - Tabbed
-        - [Qutebrowser](https://www.qutebrowser.org/) - "A keyboard-driven, vim-like browser based on PyQt5 and Qt."
-        - [Luakit](https://luakit.github.io/) - "A fast, simple to use micro-browser framework extensible by Lua using the WebKit engine and the GTK+ toolkit."
-    - Not tabbed (Use a tabbed window manager or something that supports XEmbed)
-        - [vimb](https://fanglingsu.github.io/vimb/) - "A fast and lightweight vim-like web browser based on the webkit engine and the GTK toolkit."
-        - [surf](https://surf.suckless.org/) - "A simple web browser based on WebKit2/GTK+."
-        - [uzbl](https://www.uzbl.org/) - "A web browser that adheres to the unix philosophy."
-
-Muttator is not affected by these changes.
-
-Description
------------
-
-See also [Home page][homepage].
-
-Writing efficient user interfaces is the main maxim, here at Vimperator labs.
-We often follow the Vim way of doing things, but extend its principles when
-necessary.  
-Towards this end, we've created the liberator library for Mozilla based
-applications, to encapsulate as many of these generic principles as possible,
-and liberate developers from the tedium of reinventing the wheel.
-
-Currently, these applications are using this library:
-
-### Vimperator
-
-Vimperator, the flagship project from Vimperator labs, creates a Vim-like
-Firefox.
-
-Vimperator is a Firefox browser extension with strong inspiration from the Vim
-text editor, with a mind towards faster and more efficient browsing.  It has
-similar key bindings and you could call it a modal web browser, as key bindings
-differ according to which mode you are in. For example, it has a special Hint
-mode, where you can follow links easily with the keyboard only.  Also most
-functionality is available as commands, typing `:back` will go back within the
-current page history, just like hitting the back button in the toolbar.
-
-### Muttator
-
-Muttator is to Thunderbird what Vimperator is to Firefox. Combines the best
-aspects of Vim and Mutt.
-
-Muttator is a free add-on for the Thunderbird mail client, which makes it look
-and behave like the Vim text editor. It has similar key bindings and you could
-call it a modal mail client, as key bindings differ according to which mode you
-are in. For example, it the same keys can select the next message while the
-message list has focus or can scroll down an existing message when the message
-preview is selected. It also adds commands for accessing most Thunderbird
-functionality. E.g., `:contact -lastname "Vimperator" vimperator@mozdev.org`
-will add Vimperator's mailing list to your address book.
-
-Features (Vimperator)
+Features (PaleVim)
 ---------------------
 
 - Vim-like keybindings (`h`, `j`, `k`, `l`, `gg`, `G`, `0`, `$`, `ZZ`, etc.)
 - Ex commands (`:quit`, `:open www.foo.com`, ...)
 - Tab completion available for all commands with support for 'longest' matching
   when set in 'wildmode'
-- Extensions! Yes, you can extend Vimperator's functionality with scripts just
+- Extensions! Yes, you can extend PaleVim's functionality with scripts just
   like you can extend Firefox with extensions
 - Explore JavaScript objects with `:echo window` and even context-sensitive tab
   completion
@@ -126,10 +45,10 @@ Features (Vimperator)
 - A comprehensive `:help`, explaining all commands, mappings and options
 - Much more...
 
-Installation (Vimperator)
+Installation (PaleVim)
 -------------------------
 
-> Note that Vimperator doesn't support multi-process aka
+> Note that PaleVim doesn't support multi-process aka
 > [Electrolysis][wiki_e10s] (e10s), it's necessary to disable e10s to use the
 > add-on.
 
@@ -232,7 +151,7 @@ The unsigned XPI should appear in
 <tr>
   <td>Yes, I'd like to update own version.</td>
   <td>Enter <a href="https://addons.mozilla.org/en-US/developers/addons">
-  Manage My Submissions</a>, upload the XPI from your Vimperator's <code>New
+  Manage My Submissions</a>, upload the XPI from your PaleVim's <code>New
   Version</code> link.
   </td>
 </tr>
@@ -243,7 +162,7 @@ click `Sign add-on` button to sign.
 
 #### Install signed add-on to Firefox
 
-Install it via the link in your AMO developer account (find your Vimperator's
+Install it via the link in your AMO developer account (find your PaleVim's
 `Manage Status & Versions`). The new UUID makes it a new add-on, so don't
 forget to disable the old version.
 
@@ -256,39 +175,3 @@ cd vimperator-labs/vimperator
 make sign
 ```
 
-Contributing
-------------
-
-**Vimperator is in need of collaborators! Help bring vimperator into the age
-of e10s!**
-
-Please check existing issues for similar issues before opening a new issue.
-See [CONTIRIBUTING.md][contributing] for details.
-
-License
--------
-
-Vimperator-labs is released under the MIT license, see [License.txt][license].
-
-Links                | URL
----------------------|---------------------------------------------------------
-Home page            | http://www.vimperator.org/
-Add-ons (Vimperator) | https://addons.mozilla.org/en-US/firefox/addon/vimperator/
-Add-ons (Muttator)   | https://addons.mozilla.org/en-US/firefox/addon/muttator/
-Github repository    | https://github.com/vimperator/vimperator-labs/
-
-<!-- References -->
-[amo_version]: https://img.shields.io/amo/v/vimperator.svg
-[amo_release]: https://addons.mozilla.org/en-US/firefox/addon/vimperator/
-[github_version]: https://img.shields.io/github/release/vimperator/vimperator-labs.svg
-[github_release]: https://github.com/vimperator/vimperator-labs/releases/latest
-[homepage]: http://www.vimperator.org/
-[wiki_e10s]: https://wiki.mozilla.org/Electrolysis
-[wiki_signing]: https://wiki.mozilla.org/Add-ons/Extension_Signing
-[mdn_signing]: https://developer.mozilla.org/en-US/Add-ons/Distribution
-[amo_api_key]: https://addons.mozilla.org/en-US/developers/addon/api/key/
-[jpm_repo]: https://github.com/mozilla-jetpack/jpm
-[contributing]: https://github.com/vimperator/vimperator-labs/blob/master/CONTRIBUTING.md
-[license]: https://github.com/vimperator/vimperator-labs/blob/master/License.txt
-
-<!-- vim: set ft=markdown sw=4 ts=4 sts=4 et ai: -->
