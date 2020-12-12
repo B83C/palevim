@@ -675,9 +675,9 @@ const Editor = Module("editor", {
             ["<C-k>"], "Delete until end of current line",
             function () { editor.executeCommand("cmd_deleteToEndOfLine", 1); });
 
-        mappings.add(myModes,
-            ["<C-a>"], "Move cursor to beginning of current line",
-            function () { editor.executeCommand("cmd_beginLine", 1); });
+        //mappings.add(myModes,
+        //    ["<C-a>"], "Move cursor to beginning of current line",
+        //    function () { editor.executeCommand("cmd_beginLine", 1); });
 
         mappings.add(myModes,
             ["<C-e>"], "Move cursor to end of current line",

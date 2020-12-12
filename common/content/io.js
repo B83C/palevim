@@ -7,7 +7,7 @@
 
 /** @scope modules */
 
-const VERSION = Services.appinfo.platformVersion;
+const VERSION = "55.0";
 
 plugins.contexts = {};
 const Script = Class("Script", {
