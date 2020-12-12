@@ -5,10 +5,7 @@ PaleVim
 [![github release][github_version]][github_release]
 
 **This is a custom fork of VIMPERATOR**
-**Make Firefox/Thunderbird look and behave like Vim**
 
-> **To beginners**: Welcome to the PaleVim-labs!  
-> This README isn't written usage and help for the add-on itself.
 > Try `:help` command after installing add-on for details.
 
 Features (PaleVim)
@@ -133,32 +130,6 @@ make xpi
 
 The unsigned XPI should appear in
 `../downloads/vimperator-3.N.N.yyyymmddhhmmss.xpi`.
-
-#### Submit unsigned add-on to AMO
-
-<table>
-<tr>
-  <th>Have you ever submitted own version to AMO?</th><th>How to submit</th>
-</tr>
-<tr>
-  <td>No, I'd like to register own version.</td>
-  <td>Enter <a
-  href="https://addons.mozilla.org/en-US/developers/addon/submit/distribution">
-  How to Distribute this Version</a>, upload the XPI selecting <code>On your
-  own</code> button.
-  </td>
-</tr>
-<tr>
-  <td>Yes, I'd like to update own version.</td>
-  <td>Enter <a href="https://addons.mozilla.org/en-US/developers/addons">
-  Manage My Submissions</a>, upload the XPI from your PaleVim's <code>New
-  Version</code> link.
-  </td>
-</tr>
-</table>
-
-Then the validation starts. Finally, automatically validation XPI finishes,
-click `Sign add-on` button to sign.
 
 #### Install signed add-on to Firefox
 
