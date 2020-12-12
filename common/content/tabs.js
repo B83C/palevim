@@ -1025,7 +1025,7 @@ const Tabs = Module("tabs", {
             "Go to the last tab",
             function (count) { tabs.select("$"); });
 
-        mappings.add([modes.NORMAL], ["gt"],
+        mappings.add([modes.NORMAL], ["L"],
             "Go to the next tab",
             function (count) {
                 if (count != null)
@@ -1040,7 +1040,7 @@ const Tabs = Module("tabs", {
             function (count) { tabs.select("+" + (count || 1), true); },
             { count: true });
 
-        mappings.add([modes.NORMAL], ["gT", "<C-p>", "<C-S-Tab>", "<C-PageUp>"],
+        mappings.add([modes.NORMAL], ["K", "<C-p>", "<C-S-Tab>", "<C-PageUp>"],
            "Go to previous tab",
             function (count) { tabs.select("-" + (count || 1), true); },
             { count: true });

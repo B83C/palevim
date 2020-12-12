@@ -259,7 +259,7 @@ const History = Module("history", {
             { count: true });
 
         mappings.add(myModes,
-            ["L", "<A-Right>", "<M-Right>"], "Go forward in the browser history",
+            ["h", "<A-Right>", "<M-Right>"], "Go forward in the browser history",
             function (count) { history.stepTo(Math.max(count, 1)); },
             { count: true });
     }

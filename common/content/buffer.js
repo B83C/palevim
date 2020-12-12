@@ -1586,22 +1586,22 @@ const Buffer = Module("buffer", {
         // scrolling
         mappings.add(myModes, ["k", "<C-e>"],
             "Scroll document down",
-            function (count) { buffer.scrollLines(3); },
+            function (count) { buffer.scrollLines(Math.max(count, 3)); },
             { count: true });
 
         mappings.add(myModes, ["l", "<C-y>"],
             "Scroll document up",
-            function (count) { buffer.scrollLines(-3); },
+            function (count) { buffer.scrollLines(-Math.max(count, 3)); },
             { count: true });
 
         mappings.add(myModes, ["j"], // <Left> is mapped implicitly by Firefox
             "Scroll document to the left",
-            function (count) { buffer.scrollColumns(-Math.max(count, 1)); },
+            function (count) { buffer.scrollColumns(-3); },
             { count: true });
 
         mappings.add(myModes, [";"], // <Right> is mapped implicitly by Firefox
             "Scroll document to the right",
-            function (count) { buffer.scrollColumns(Math.max(count, 1)); },
+            function (count) { buffer.scrollColumns(3); },
             { count: true });
 
         mappings.add(myModes, ["0", "^"],
