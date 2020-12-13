@@ -1256,6 +1256,9 @@ const Hints = Module("hints", {
             "Start QuickHint mode",
             function () { hints.show("o"); });
 
+        mappings.add(myModes, [",y"],
+            "Start QuickHint mode",
+            function () { hints.show("y"); });
         // At the moment, "F" calls
         //    buffer.followLink(clicked_element, DO_WHAT_FIREFOX_DOES_WITH_CNTRL_CLICK)
         // It is not clear that it shouldn't be:
@@ -1270,7 +1273,7 @@ const Hints = Module("hints", {
             "Start QuickHint mode, but open link in a new tab",
             function () { hints.show(options.getPref("browser.tabs.loadInBackground") ? "b" : "t"); });
 
-        mappings.add(myModes, [";"],
+        mappings.add(myModes, ["e"],
             "Start an extended hint mode",
             function (count) {
                 hints._extendedhintCount = count;
