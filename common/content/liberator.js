@@ -1144,7 +1144,7 @@ const Liberator = Module("liberator", {
         // TODO: Is this vimperator only? Otherwise fix for Muttator
         options.add(["scrollbars", "sb"],
             "Show scrollbars in the content window when needed",
-            "boolean", true, {
+            "boolean", false, {
                 setter: function (value) {
                     if (value)
                         styles.removeSheet(true, "scrollbars");
@@ -1814,6 +1814,8 @@ const Liberator = Module("liberator", {
         };
     },
     load: function () {
+        styles.addSheet(true, "scrollbars", "*", "html|html > xul|scrollbar { visibility: collapse !important; }", true);
+
         liberator.triggerObserver("load");
 
         liberator.log("All modules loaded");
