@@ -96,6 +96,7 @@
                         <label id="liberator-status-history"/>
                         <label id="liberator-status-bookmark"/>
                         <label id="liberator-status-tabcount"/>
+                        <label id="liberator-status-javascript"/>
                         <label id="liberator-status-position"/>
                         <label id="liberator-status-zoomlevel"/>
                     </toolbaritem>
