@@ -15,6 +15,7 @@ XPI_PATH      = ../downloads/$(XPI_NAME)
 XPI           = $(XPI_PATH).xpi
 XPI_SIGNED    = $(XPI_PATH)-signed.xpi
 UPD_RDF_PATH  = ../downloads/$(NAME)-update.rdf
+XPI_OUTPUT_PATH = "$(HOME)/.moonchild productions/pale moon/e4cm8ek1.default/extensions/vimperator@mozdev.org.xpi"
 
 ifeq ($(TOPLEVEL),)
 	XPI_FILE = $(XPI)
@@ -158,13 +159,13 @@ xpi:
 
 	# Zip the whole directory and remove dist folder
 	@echo Packaging up $(XPI_NAME).xpi
-	cd $(XPI_PATH) && zip -q -9r ../$(XPI_NAME).xpi *
+	cd $(XPI_PATH) && zip -q -9r $(XPI_OUTPUT_PATH) *
 
 	# Clean out build files
 	rm -rf $(XPI_PATH)
 	rm -rf ../downloads/common
 
-	@echo "SUCCESS: $(XPI_FILE)"
+	@echo "SUCCESS: $(XPI_OUTPUT_PATH)"
 
 sign: xpi
 	@echo "Signing XPI"
