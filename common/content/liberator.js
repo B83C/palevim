@@ -1814,7 +1814,10 @@ const Liberator = Module("liberator", {
         };
     },
     load: function () {
+        // Disable scrollbars
         styles.addSheet(true, "scrollbars", "*", "html|html > xul|scrollbar { visibility: collapse !important; }", true);
+        // Disable animations
+        styles.addSheet(false, "animations", "*","*,*::before,*::after{ animation-timing-function: step-start !important; transition-timing-function: step-start !important; scroll-behavior: auto !important; }", true);
 
         liberator.triggerObserver("load");
 
