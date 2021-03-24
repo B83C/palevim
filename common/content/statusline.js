@@ -338,30 +338,35 @@ const StatusLine = Module("statusline", {
 
                 if (url == null)
                     // TODO: this probably needs a more general solution.
-                    url = services.get("textToSubURI").unEscapeURIForUI(buffer.charset, buffer.URL);
+                    url = window.content.location.origin;
 
                 // make it even more Vim-like
-                if (url == "about:blank") {
-                    if (!buffer.title)
-                        url = "[No Name]";
+                if(url == "null")
+                {
+                    url = buffer.URL;
                 }
-                else {
-                    url = url.replace(RegExp("^liberator://help/(\\S+)#(.*)"), function (m, n1, n2) n1 + " " + decodeURIComponent(n2) + " [Help]")
-                             .replace(RegExp("^liberator://help/(\\S+)"), "$1 [Help]");
-                }
+                //if (url == "about:blank") {
+                //    if (!buffer.title)
+                //        url = "[No Name]";
+                //}
+                //else {
+                //    url = url.replace(RegExp("^liberator://help/(\\S+)#(.*)"), function (m, n1, n2) n1 + " " + decodeURIComponent(n2) + " [Help]")
+                //             .replace(RegExp("^liberator://help/(\\S+)"), "$1 [Help]");
+                //}
 
                 node.value = url;
             });
         statusline.addField("history", "The backward / forward history indicators", "liberator-status-history",
             function updateHistory (node) {
-                let history = "";
+                let history = "  ".split("");
                 if (window.getWebNavigation) {
                     let sh = window.getWebNavigation().sessionHistory;
                     if (sh && sh.index > 0)
-                        history += "<";
+                        history[0] = "<";
                     if (sh && sh.index < sh.count - 1)
-                        history += ">";
+                        history[1] = ">";
                 }
+                history = history.join("");
                 node.value = history;
             });
         statusline.addField("bookmark", "The bookmark indicator (heart)", "liberator-status-bookmark",
@@ -397,6 +402,16 @@ const StatusLine = Module("statusline", {
                     }
 
                     node.value = "[" + (tabs.index() + 1) + "/" + tabs.count + "]";
+                }
+            });
+        statusline.addField("tjs", "Current state of javascript engine", "liberator-status-javascript",
+            function updateJavascript (node, val) {
+                if(val)
+                {
+                    node.value = "[JS]";
+                }
+                else{
+                    node.value = "";
                 }
             });
         statusline.addField("position", "The vertical scroll position", "liberator-status-position",
@@ -458,7 +473,7 @@ const StatusLine = Module("statusline", {
     options: function () {
         options.add(["status"],
             "Define which information to show in the status bar",
-            "stringlist", "input,location,bookmark,history,ssl,tabcount,position",
+            "stringlist", "location,history,ssl,tabcount,tjs,position",
             {
                 setter: function setter(value) {
                     statusline.sortFields(this.values);
