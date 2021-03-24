@@ -289,23 +289,23 @@ const Buffer = Module("buffer", {
                 return;
             }
 
-            if (link && ssli) {
-                if (ssli == 1) {
-                    statusline.updateField("location", "Link: " + link);
-                    statusline.updateField("bookmark", link);
-                }
-                else if (ssli == 2)
-                    liberator.echo("Link: " + link, commandline.DISALLOW_MULTILINE);
-            }
+            //if (link && ssli) {
+            //    if (ssli == 1) {
+            //        statusline.updateField("location", "Link: " + link);
+            //        statusline.updateField("bookmark", link);
+            //    }
+            //    else if (ssli == 2)
+            //        liberator.echo("Link: " + link, commandline.DISALLOW_MULTILINE);
+            //}
 
-            if (link == "") {
-                if (ssli == 1) {
-                    statusline.updateField("location");
-                    statusline.updateField("bookmark");
-                }
-                else if (ssli == 2)
-                    modes.show();
-            }
+            //if (link == "") {
+            //    if (ssli == 1) {
+            //        statusline.updateField("location");
+            //        statusline.updateField("bookmark");
+            //    }
+            //    else if (ssli == 2)
+            //        modes.show();
+            //}
         },
     },
 
@@ -1586,22 +1586,30 @@ const Buffer = Module("buffer", {
         // scrolling
         mappings.add(myModes, ["k", "<C-e>"],
             "Scroll document down",
-            function (count) { buffer.scrollLines(Math.max(count, 3)); },
+            function (count) {
+            config.browser.contentWindow.document.documentElement.scrollTop += 35;
+            },
             { count: true });
 
         mappings.add(myModes, ["l", "<C-y>"],
             "Scroll document up",
-            function (count) { buffer.scrollLines(-Math.max(count, 3)); },
+            function (count) { 
+            config.browser.contentWindow.document.documentElement.scrollTop -= 35;
+            },
             { count: true });
 
         mappings.add(myModes, ["j"], // <Left> is mapped implicitly by Firefox
             "Scroll document to the left",
-            function (count) { buffer.scrollColumns(-3); },
+            function (count) {
+            config.browser.contentWindow.document.documentElement.scrollLeft += 20;
+            },
             { count: true });
 
         mappings.add(myModes, [";"], // <Right> is mapped implicitly by Firefox
             "Scroll document to the right",
-            function (count) { buffer.scrollColumns(3); },
+            function (count) {
+            config.browser.contentWindow.document.documentElement.scrollRight += 20;
+            },
             { count: true });
 
         mappings.add(myModes, ["0", "^"],
@@ -1700,6 +1708,16 @@ const Buffer = Module("buffer", {
                 }
             },
             { count: true });
+
+        mappings.add(myModes, [",js"],
+            "Enlarge text zoom of current web page",
+            function (count) {
+                var serv =  services.get("prefs");
+                var stat = !serv.getBoolPref("javascript.enabled");
+                serv.setBoolPref("javascript.enabled", stat);
+                statusline.updateField("tjs", stat);
+            },
+            { count: false });
 
         mappings.add(myModes, ["gP"],
             "Open (put) a URL based on the current clipboard contents in a new buffer",
